@@ -1,0 +1,86 @@
+.header-menu {
+    display: flex;
+    flex-direction: column;
+    background: rgba($color-dark, 0.3);
+    align-items: center;
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @include sm-min {
+            display: flex;
+        }
+
+        @include sm {
+            display: none;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+    }
+
+    &__btn {
+        flex-direction: column;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        background: rgba($color-dark, 0.2);
+        align-items: center;
+        justify-content: center;
+
+        @include sm-min {
+            display: none;
+        }
+
+        @include sm {
+            display: flex;
+        }
+    }
+    &__btn-row {
+        position: relative;
+        width: 60%;
+        height: 2px;
+        margin: 2px 0;
+        transition: 0.5s;
+        background-color: $color-light;
+    }
+
+    &__btn .active &__btn-row:first-child {
+        top: 6px;
+        transform: rotate(-135deg);
+    }
+
+    &__btn .active &__btn-row:last-child {
+        top: -6px;
+        transform: rotate(-225deg);
+    }
+
+    &__btn .active &__btn-row:nth-child(2) {
+        opacity: 0;
+    }
+}
+
+.header-menu__list .active {
+    display: flex;
+    flex-direction: column;
+
+    & a {
+        color: darken($color-accent, 10%);
+        background: rgba($color-dark, 0.4);
+        text-shadow: 1px 1px 3px $color-dark, 1px 1px 10px $color-dark;
+    }
+}
+.header-menu__list-item a {
+    display: block;
+    margin: 5px;
+    padding: 10px 15px;
+    border-radius: 4px;
+
+    &:hover,
+    &:focus {
+        background: rgba($color-dark, 0.3);
+        text-shadow: 1px 1px 3px $color-dark, 1px 1px 10px $color-dark;
+    }
+}
